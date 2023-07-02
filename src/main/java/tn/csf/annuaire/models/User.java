@@ -45,9 +45,7 @@ public class User {
 	@JoinColumn (name="idMembership", referencedColumnName="id")
 	private Membership membership;
 	
-	/*@OneToMany (optional=false)
-	@JoinColumn (name="idNotification", referencedColumnName="id")
-	private Notification notification;*/
+	
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 

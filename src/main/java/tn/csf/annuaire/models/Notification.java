@@ -22,6 +22,11 @@ public class Notification {
 	private String title;
 	@Column
 	private String description;
+	
+	@ManyToOne (optional=false)
+	@JoinColumn (name="idNotification", referencedColumnName="id")
+	private User user;
+	
 	public int getId() {
 		return id;
 	}

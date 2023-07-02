@@ -1,6 +1,5 @@
 package tn.csf.annuaire.security;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import tn.csf.annuaire.security.jwt.*;
-import tn.csf.annuaire.security.services.*;
-
+import tn.csf.annuaire.security.jwt.AuthEntryPointJwt;
+import tn.csf.annuaire.security.jwt.AuthTokenFilter;
+import tn.csf.annuaire.security.services.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -65,4 +64,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }
-
