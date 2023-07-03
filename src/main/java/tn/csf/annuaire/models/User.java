@@ -41,9 +41,7 @@ public class User {
 	@JoinColumn (name="idSpeciality", referencedColumnName="id")
 	private Speciality speciality;
 	
-	@OneToOne (optional=false)
-	@JoinColumn (name="idMembership", referencedColumnName="id")
-	private Membership membership;
+	
 	
 	
 	
