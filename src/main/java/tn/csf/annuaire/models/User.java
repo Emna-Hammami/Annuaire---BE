@@ -34,11 +34,11 @@ public class User {
 	private String password;
 
 	@ManyToOne (optional=false)
-	@JoinColumn (name="idRole", referencedColumnName="id")
+	@JoinColumn (name="idrole")
 	private Role role;
 	
 	@ManyToOne (optional=false)
-	@JoinColumn (name="idSpeciality", referencedColumnName="id")
+	@JoinColumn (name="idspeciality")
 	private Speciality speciality;
 	
 	

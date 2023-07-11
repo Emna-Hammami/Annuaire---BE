@@ -1,6 +1,8 @@
 package tn.csf.annuaire.controllers;
 
-import java.util.List;  
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;  
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;  
 import org.springframework.web.bind.annotation.PutMapping;  
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.csf.annuaire.models.*;
@@ -58,6 +61,28 @@ public class UserController {
 			{  
 				userServices.saveOrUpdate(a);  
 				return a;  
+			}  
+
+			
+			//creating a get mapping that retrieves the detail of a specific article  
+			@GetMapping("/usersbyspeciality/{id}")  
+			private List<User> getUsersBySpeciality(@PathVariable("id") int id)   
+			{  
+				return userServices.getUsersBySpeciality(id);  
+			}  
+
+			//creating a get mapping that retrieves the detail of a specific article  
+			@GetMapping("/usersbyusername/{username}")  
+			private Optional<User> getUsersByUsername(@PathVariable("username") String username)   
+			{  
+				return userServices.getUsersByUsername(username);  
+			}  	
+		
+			@GetMapping("/usersbyspecialityandemail")  
+			private List<User> getUsersBySpecialityAndEmail(@RequestParam int id,
+					@RequestParam String email)   
+			{  
+				return userServices.getUsersBySpecialityAndByEmail(id, email);  
 			}  
 
 }

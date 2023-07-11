@@ -18,6 +18,7 @@ import tn.csf.annuaire.security.jwt.AuthEntryPointJwt;
 import tn.csf.annuaire.security.jwt.AuthTokenFilter;
 import tn.csf.annuaire.security.services.UserDetailsServiceImpl;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(

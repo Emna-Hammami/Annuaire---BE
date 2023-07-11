@@ -24,7 +24,7 @@ public class Notification {
 	private String description;
 	
 	@ManyToOne (optional=false)
-	@JoinColumn (name="idNotification", referencedColumnName="id")
+	@JoinColumn (name="idnotification")
 	private User user;
 	
 	public int getId() {

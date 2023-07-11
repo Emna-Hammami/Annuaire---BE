@@ -1,6 +1,8 @@
 package tn.csf.annuaire.repository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,5 +18,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	Boolean existsByUsername(String username);
 
 	Boolean existsByEmail(String email);
+
+	@Query
+	List<User> findBySpeciality(@Param("idspeciality") int idspeciality);
+
+	@Query
+	List<User> findBySpecialityAndEmail(@Param("idspeciality") int idspeciality, @Param("email") String email);
 }
 

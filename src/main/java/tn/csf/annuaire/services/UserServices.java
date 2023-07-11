@@ -1,7 +1,9 @@
 package tn.csf.annuaire.services;
 
 import java.util.ArrayList;  
-import java.util.List;  
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Service;
 
@@ -41,7 +43,23 @@ public class UserServices {
 	public void delete(long id)   
 	{  
 		userRepository.deleteById((long) id);  
-	} 
+	}
 
+	public List<User> getUsersBySpeciality(int id) {
+		// TODO Auto-generated method stub
+		return userRepository.findBySpeciality(id);
+	}
+
+	public Optional<User> getUsersByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userRepository.findByUsername(username);
+	}
+
+	public List<User> getUsersBySpecialityAndByEmail(int id, String email) {
+		// TODO Auto-generated method stub
+		return userRepository.findBySpecialityAndEmail(id,email);
+	}
+
+	
 
 }

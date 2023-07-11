@@ -1,5 +1,7 @@
 package tn.csf.annuaire.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;  
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,16 +21,18 @@ public class Membership {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment
 	@Column 
 	private int id;  
-	@Column
-	private int duration; //nbre de mois
-	@Column
-	private double price;
 	@Column 
-	private String methodOfPayment;
+	private LocalDate experation; 
+	@Column 
+	private double amount; 
+	@Column 
+	private String payment; 
+	
 	
 	@ManyToOne (optional=false)
-	@JoinColumn (name="idMembership", referencedColumnName="id")
+	@JoinColumn (name="idmembership")
 	private User user;
+	
 	
 	public int getId() {
 		return id;
@@ -36,29 +40,34 @@ public class Membership {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDuration() {
-		return duration;
+	public LocalDate getExperation() {
+		return experation;
 	}
-	public void setDuration(int duration) {
-		this.duration = duration;
+	public void setExperation(LocalDate experation) {
+		this.experation = experation;
 	}
-	public double getPrice() {
-		return price;
+	public double getAmount() {
+		return amount;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
-	public String getMethodOfPayment() {
-		return methodOfPayment;
+	public String getPayment() {
+		return payment;
 	}
-	public void setMethodOfPayment(String methodOfPayment) {
-		this.methodOfPayment = methodOfPayment;
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	@Override
 	public String toString() {
-		return "Membership [id=" + id + ", duration=" + duration + ", price=" + price + ", methodOfPayment="
-				+ methodOfPayment + "]";
+		return "Membership [id=" + id + ", experation=" + experation + ", amount=" + amount + ", payment=" + payment
+				+ ", user=" + user + "]";
 	}
 	
-
 }
